@@ -11,7 +11,7 @@ pipeline{
         }
         stage("Maven Build"){
             steps{
-                sh "mvn clean package"
+                sh "mvn -f fer_spring_boot_apr21/pom.xml -B -DskipTests clean package"
                 sh "mv target/*.war target/myweb.war"
             } 
         }
