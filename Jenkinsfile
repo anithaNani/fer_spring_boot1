@@ -1,6 +1,8 @@
 pipeline{
     agent any
-    
+    tools {
+       maven 'maven'
+    }
     stages{
         stage("Git Checkout"){
             steps{
@@ -11,8 +13,7 @@ pipeline{
             steps{
                 sh "mvn clean package"
                 sh "mv target/*.war target/myweb.war"
-                }
-            
+            } 
         }
         stage("deploy-dev"){
             steps{
