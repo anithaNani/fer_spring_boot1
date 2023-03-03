@@ -9,8 +9,7 @@ pipeline{
         }
         stage("Maven Build"){
             steps{
-                def mvnHome = tool name: 'Apache Maven 3.6.0', type: 'maven'
-                sh "${mvnHome}/bin/mvn -B -DskipTests clean package"
+                sh "mvn clean package"
 
                 sh "mv target/*.war target/myweb.war"
             }
